@@ -18,7 +18,7 @@ contract StandardToken is ERC20 {
 
   mapping(address => mapping(address => uint256)) private allowed;
 
-  uint256 private totalSupply_ = 600000000;
+  uint256 private totalSupply_;
 
   /**
   * @dev Total number of tokens in existence

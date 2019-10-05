@@ -13,7 +13,7 @@ contract ShopereumExclusiveSale is Crowdsale, Ownable {
 
   using SafeMath for uint;
 
-  uint public constant ETH_CAP = 1500 * (10 ** 8);
+  uint public constant ETH_CAP = 1500 * (10 ** 18);
 
   bool private isOpen = true;
 

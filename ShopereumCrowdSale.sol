@@ -11,7 +11,7 @@ contract ShopereumCrowdSale is Crowdsale, Ownable {
   using SafeMath for uint;
 
   // 600M tokens at 20000 per eth is 30 000 ETH
-  uint public constant ETH_CAP = 30000 * (10 ** 8);
+  uint public constant ETH_CAP = 30000 * (10 ** 18);
 
   struct Stage {
     uint stageRate;     // tokens for one ETH
@@ -19,7 +19,7 @@ contract ShopereumCrowdSale is Crowdsale, Ownable {
     uint stageRaised;   // amount raised in ETH
   }
 
-  Stage[7] public stages;
+  Stage[3] public stages;
 
   uint public currentStage = 0;
 
@@ -37,13 +37,10 @@ contract ShopereumCrowdSale is Crowdsale, Ownable {
   */
   constructor(uint256 _rate, address _wallet, ShopereumToken _token) public Crowdsale(_rate, _wallet, _token) {
     // hardcode stages
-    stages[0] = Stage(30000, 1500 * (10 ** 8), 0);
-    stages[1] = Stage(25000, 4500 * (10 ** 8), 0);
-    stages[2] = Stage(24000, ETH_CAP, 0);
-    stages[3] = Stage(23000, ETH_CAP, 0);
-    stages[4] = Stage(22000, ETH_CAP, 0);
-    stages[5] = Stage(21000, ETH_CAP, 0);
-    stages[6] = Stage(20000, ETH_CAP, 0);
+    stages[0] = Stage(25000, ETH_CAP * 0.15 * (10 ** 18), 0);
+    stages[1] = Stage(20000, ETH_CAP * 0.30 * (10 ** 18), 0);
+    stages[2] = Stage(20000, ETH_CAP * 0.30 * (10 ** 18), 0);
+
 
     // call superclass constructor and set rate at current stage
     currentStage = 0;
